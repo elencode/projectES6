@@ -17,3 +17,36 @@ https://dev.to/ccleary00/how-to-rewrite-a-callback-function-in-promise-form-and-
 https://medium.com/@samthor/js-callbacks-to-promises-541adc46c07c
 
 https://scotch.io/courses/10-need-to-know-javascript-concepts/callbacks-promises-and-async
+
+
+const USERS = 'https://jsonplaceholder.typicode.com/users';
+const COMM = 'https://jsonplaceholder.typicode.com/';
+const POST = 'https://jsonplaceholder.typicode.com/posts';
+
+class FistClass {
+    constructor(elementId) {
+        this.elementId = elementId
+      }
+
+      getData(uri){
+        fetch(uri)
+        .then((response) => { console.log(response); return response.json()})
+        .then((data)=>{
+            console.log('ds' ,data);
+        })
+      }
+
+    //   async getDataAsync(uri){
+    //       let response = await fetch(uri);
+    //       console.log('await response', response)
+    //   }
+
+}
+
+
+var app = new FistClass('root');
+
+app.getData(USERS);
+// console.log("BBBBBB");
+// app.getDataAsync(USERS);
+// console.log("DDDDDDD");
