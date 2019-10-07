@@ -31,3 +31,49 @@ https://stackify.com/rest-api-tutorial/
 https://www.tutorialspoint.com/reactjs/reactjs_components.htm
 
 https://www.youtube.com/watch?v=HaEGyA91auk&list=PLu6MFGxDdiliq6MH-rBxOu46TksEKsUP0&index=3
+const USERS = 'https://jsonplaceholder.typicode.com/users';
+const COMM = 'https://jsonplaceholder.typicode.com/comments';
+const POST = 'https://jsonplaceholder.typicode.com/posts';
+
+const root = document.getElementById('root');
+class FistClass {
+    constructor(elementId) {
+        this.elementId = elementId;
+      }
+
+      /** FETCH **/
+      getData(uri){
+        fetch(uri)
+        .then((response) => { console.log(response); return response.json()})
+        .then((data) => {
+            //console.log('ds' ,data);
+            //root.innerHTML = `${JSON.stringify(data)}`;
+            this.appendData(data);
+        })
+      }
+
+      /** ASYNC AWAIT **/
+      async getDataAsync(uri){
+          const response = await fetch(uri);
+          const data = await response.json()
+          //console.log('got a response', json)
+          this.appendData(data);
+    }
+
+    appendData (data){
+    for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.style.marginTop = "15px";
+                div.innerHTML = `ID: ${data[i].id} <br> Name: ${data[i].name} <br> Username: ${data[i].username}
+                <br> Email: ${data[i].email} <br> Address: street: ${data[i].address.street} suite: ${data[i].address.suite} city: ${data[i].address.city} <br> zipcode: ${data[i].address.zipcode} <br> geo: lat: ${data[i].address.geo.lat} long: ${data[i].address.geo.lng}<br> Phone: ${data[i].phone}
+                <br> Website: ${data[i].website} <br> Company: name: ${data[i].company.name} catchPhrase: ${data[i].company.catchPhrase} bs: ${data[i].company.bs}`;
+                root.appendChild(div);
+            }
+        }
+
+}
+
+
+const app = new FistClass('root');
+//app.getData(USERS);
+app.getDataAsync(USERS);
