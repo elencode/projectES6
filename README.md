@@ -26,3 +26,8 @@ https://restfulapi.net/http-methods/
 https://www.restapitutorial.com/lessons/httpmethods.html
 
 https://stackify.com/rest-api-tutorial/
+
+
+https://www.tutorialspoint.com/reactjs/reactjs_components.htm
+
+https://www.youtube.com/watch?v=HaEGyA91auk&list=PLu6MFGxDdiliq6MH-rBxOu46TksEKsUP0&index=3
